@@ -19,9 +19,12 @@ public class FormController {
 	
 	@GetMapping("/form")
 	public String form(Model model) {
-		model.addAttribute("titulo","Formulario");
 		Usuario usuario = new Usuario();
+		usuario.setNombre("Andres");
+		usuario.setApellido("Arias");
+		usuario.setId("2432354234pk");
 		//debemos agregar un usuario por defecto para evitar un nullpointer
+		model.addAttribute("titulo","Formulario");
 		model.addAttribute("usuario",usuario);
 		return "form";
 	}
@@ -53,12 +56,15 @@ public class FormController {
 		//crearemos otra parte del proyecto donde lo hagamos más automatico con thymeleaf
 		model.addAttribute("titulo", "Resultado del formulario mapeando");
 		
+//		if(result.hasErrors()) {
+//			Map<String, String> errores = new HashMap<>();
+//			result.getFieldErrors().forEach(err->{
+//				errores.put(err.getField(), "El campo ".concat(err.getField().concat(" ").concat(err.getDefaultMessage())));
+//			});
+//			model.addAttribute("errores", errores);
+//			return "form";
+//		}
 		if(result.hasErrors()) {
-			Map<String, String> errores = new HashMap<>();
-			result.getFieldErrors().forEach(err->{
-				errores.put(err.getField(), "El campo ".concat(err.getField().concat(" ").concat(err.getDefaultMessage())));
-			});
-			model.addAttribute("errores", errores);
 			return "form";
 		}
 		

@@ -6,10 +6,13 @@
 </head>
 <body>
 	<h3 th:text="${titulo}"></h3>
-	<ul>
-		<li th:text="${usuario.username}"></li>
-		<li th:text="${usuario.password}"></li>
-		<li th:text="${usuario.email}"></li>
+	<ul th:object="${usuario}">
+		<li th:text="*{id}"></li>
+		<li th:text="*{nombre}"></li>
+		<li th:text="*{apellido}"></li>
+		<li th:text="*{username}"></li>
+		<li th:text="*{password}"></li>
+		<li th:text="*{email}"></li>
 	</ul>
 </body>
 </html>
