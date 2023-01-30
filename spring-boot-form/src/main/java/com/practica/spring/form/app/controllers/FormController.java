@@ -9,12 +9,15 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.practica.spring.form.app.models.domain.Usuario;
 
 import jakarta.validation.Valid;
 
 @Controller
+@SessionAttributes("usuario") //esto se guarda en una sesion http para mantenerlo de forma persistente durante la ejecucion
 public class FormController {
 	
 	@GetMapping("/form")
@@ -22,6 +25,7 @@ public class FormController {
 		Usuario usuario = new Usuario();
 		usuario.setNombre("Andres");
 		usuario.setApellido("Arias");
+		//Usamos @SessionAttributes para mantener los datos del ID para evitar que el dato se pierda y quede en null
 		usuario.setId("2432354234pk");
 		//debemos agregar un usuario por defecto para evitar un nullpointer
 		model.addAttribute("titulo","Formulario");
@@ -51,7 +55,7 @@ public class FormController {
 	
 	//mucho más limpío y automatizado, ya que se envia el usuario y se pueblan los datos
 	//crearemos también validaciones mediante spring y no del cliente con html
-	public String recibir(@Valid Usuario usuario, BindingResult result, Model model) {
+	public String recibir(@Valid Usuario usuario, BindingResult result, Model model, SessionStatus status) {
 		//BindingResult debe estar siempre después del objeto que se valida, esto es para validar de forma manual
 		//crearemos otra parte del proyecto donde lo hagamos más automatico con thymeleaf
 		model.addAttribute("titulo", "Resultado del formulario mapeando");
@@ -69,7 +73,7 @@ public class FormController {
 		}
 		
 		model.addAttribute("usuario", usuario);
-		
+		status.setComplete(); // se elimina el objeto usuario de la sesion
 		return "resultado";
 	}
 	

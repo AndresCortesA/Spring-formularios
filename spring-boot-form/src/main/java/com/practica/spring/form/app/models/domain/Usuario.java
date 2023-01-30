@@ -1,22 +1,27 @@
 package com.practica.spring.form.app.models.domain;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 public class Usuario {
 	
 	private String id;
-	@NotEmpty
+	@NotEmpty(message = "No puede ser vacio")
 	private String nombre;
 	@NotEmpty
 	private String apellido;
 	
 	@NotEmpty
+	@Size(min=3 ,max=8) //Validaciones de tamaño
 	private String username;
 	
 	@NotEmpty
+	@Size(min=6, max=15)
 	private String password;
 	
 	@NotEmpty
+	@Email
 	private String email;
 
 	public String getUsername() {
