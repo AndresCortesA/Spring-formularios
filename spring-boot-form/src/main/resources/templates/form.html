@@ -9,6 +9,14 @@
 	<form th:action="@{/form}" th:object="${usuario}" method="post">
 
 		<div>
+			<label for="id">Identificador</label>
+			<div>
+				<input type="text" id="id" th:field="*{id}">
+			</div>
+			<div th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></div>
+
+		</div>
+		<div>
 			<label for="nombre">Nombre</label>
 			<div>
 				<input type="text" id="nombre" th:field="*{nombre}">

@@ -1,18 +1,16 @@
 package com.practica.spring.form.app.controllers;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.practica.spring.form.app.models.domain.Usuario;
+import com.practica.spring.form.app.validation.UsuarioValidador;
 
 import jakarta.validation.Valid;
 
@@ -20,13 +18,16 @@ import jakarta.validation.Valid;
 @SessionAttributes("usuario") //esto se guarda en una sesion http para mantenerlo de forma persistente durante la ejecucion
 public class FormController {
 	
+	@Autowired
+	private UsuarioValidador validador;
+	
 	@GetMapping("/form")
 	public String form(Model model) {
 		Usuario usuario = new Usuario();
 		usuario.setNombre("Andres");
 		usuario.setApellido("Arias");
 		//Usamos @SessionAttributes para mantener los datos del ID para evitar que el dato se pierda y quede en null
-		usuario.setId("2432354234pk");
+		usuario.setId("222:345_l");
 		//debemos agregar un usuario por defecto para evitar un nullpointer
 		model.addAttribute("titulo","Formulario");
 		model.addAttribute("usuario",usuario);
@@ -58,6 +59,8 @@ public class FormController {
 	public String recibir(@Valid Usuario usuario, BindingResult result, Model model, SessionStatus status) {
 		//BindingResult debe estar siempre después del objeto que se valida, esto es para validar de forma manual
 		//crearemos otra parte del proyecto donde lo hagamos más automatico con thymeleaf
+		validador.validate(usuario, result);
+		
 		model.addAttribute("titulo", "Resultado del formulario mapeando");
 		
 //		if(result.hasErrors()) {

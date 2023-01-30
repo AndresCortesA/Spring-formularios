@@ -5,9 +5,10 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 public class Usuario {
-	
+	//Creamos un package para personalizar nuestras advertencias
+	//@Pattern(regexp = "[0-9]{3}[:][0-9]{3}[_][a-zA-Z]{1}")//generar id de manera automatica usando pattern
 	private String id;
-	@NotEmpty(message = "No puede ser vacio")
+	//@NotEmpty(message = "No puede ser vacio")
 	private String nombre;
 	@NotEmpty
 	private String apellido;
