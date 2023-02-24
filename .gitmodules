@@ -1,0 +1,3 @@
+[submodule "spring-boot-di"]
+	path = spring-boot-di
+	url = https://github.com/AndresCortesA/SpringBoot/tree/main/spring-boot-di

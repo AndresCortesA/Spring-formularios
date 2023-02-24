@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -18,6 +19,10 @@ public class FormController {
 	
 	@Autowired
 	private UsuarioValidador validador;
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		binder.addValidators(validador);
+	}
 	
 	@GetMapping("/form")
 	public String form(Model model) {
@@ -57,7 +62,7 @@ public class FormController {
 	public String recibir(@Valid Usuario usuario, BindingResult result, Model model, SessionStatus status) {
 		//BindingResult debe estar siempre después del objeto que se valida, esto es para validar de forma manual
 		//crearemos otra parte del proyecto donde lo hagamos más automatico con thymeleaf
-		validador.validate(usuario, result);
+//		validador.validate(usuario, result);
 		
 		model.addAttribute("titulo", "Resultado del formulario mapeando");
 		
