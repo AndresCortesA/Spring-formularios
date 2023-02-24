@@ -1,9 +1,0 @@
-
-_
-java:S1948")Make "cliente" transient or serializable.(Ó…ß®8Æú€ªŞ0HRCRITICALZ
-CODE_SMELL
-k	java:S106'"9Replace this use of System.out or System.err by a logger.(ÀÔ8Ü‘Ê©Ş0H‘RMAJORZ
-CODE_SMELL
-b
-java:S1948"'Make "items" transient or serializable.(ºÈµÇùÿÿÿÿ8Æú€ªŞ0H’RCRITICALZ
-CODE_SMELL

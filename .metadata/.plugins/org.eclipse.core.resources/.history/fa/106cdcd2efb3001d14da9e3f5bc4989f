@@ -1,5 +1,0 @@
-NotEmpty=*
-NotEmpty.usuario.email=*
-NotEmpty.usuario.nombre=El campo no puede ser vacio
-Email.usuario.email=*
-pattern.usuario.id=El id no coincide con el formato ej: 223:344_k
