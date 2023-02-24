@@ -1,0 +1,28 @@
+
+t
+java:S6353$"<Use concise character class syntax '\\d' instead of '[0-9]'.(ˆ®ˆ‚şÿÿÿÿ8­‚£à0Hõ
+RMINORZ
+CODE_SMELL
+_
+java:S1125$"'Remove the unnecessary boolean literal.(ˆ®ˆ‚şÿÿÿÿ8ß«‡£à0Hú
+RMINORZ
+CODE_SMELL
+m
+java:S6397$"5Replace this character class by the character itself.(ˆ®ˆ‚şÿÿÿÿ8­‚£à0Hñ
+RMAJORZ
+CODE_SMELL
+t
+java:S6353$"<Use concise character class syntax '\\d' instead of '[0-9]'.(ˆ®ˆ‚şÿÿÿÿ8­‚£à0Hô
+RMINORZ
+CODE_SMELL
+s	java:S125"<This block of commented-out lines of code should be removed.(‰ì»ùùÿÿÿÿ8êŒı¢à0Hå
+RMAJORZ
+CODE_SMELL
+m
+java:S6397$"5Replace this character class by the character itself.(ˆ®ˆ‚şÿÿÿÿ8­‚£à0Hò
+RMAJORZ
+CODE_SMELL
+[
+java:S6396$"#Remove this unnecessary quantifier.(ˆ®ˆ‚şÿÿÿÿ8­‚£à0Hó
+RMAJORZ
+CODE_SMELL

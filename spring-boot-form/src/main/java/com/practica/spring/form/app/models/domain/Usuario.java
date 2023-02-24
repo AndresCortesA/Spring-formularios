@@ -1,6 +1,7 @@
 package com.practica.spring.form.app.models.domain;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
@@ -13,7 +14,7 @@ public class Usuario {
 	@NotEmpty
 	private String apellido;
 	
-	@NotEmpty
+	@NotBlank
 	@Size(min=3 ,max=8) //Validaciones de tamaño
 	private String username;
 	
