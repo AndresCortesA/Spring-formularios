@@ -11,7 +11,7 @@ import com.gestion.empleados.entidades.Empleado;
 import com.gestion.empleados.repositorios.EmpleadoRepository;
 
 @Service
-public  class EmpleadoServiceImpl implements EmpleadoService, EmpleadoRepository {
+public  class EmpleadoServiceImpl implements EmpleadoService {
 	
 	@Autowired
 	private EmpleadoRepository empleadoRepository;
