@@ -1,0 +1,48 @@
+package com.api.rest.poyecto.services;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.api.rest.poyecto.models.UsuarioModel;
+import com.api.rest.poyecto.repositories.UsuarioRepository;
+
+@Service
+public class UsuarioService {
+    @Autowired
+    UsuarioRepository usuarioRepository;
+    //Metodos
+    public ArrayList<UsuarioModel> obtenerUsuarios() {
+        return (ArrayList<UsuarioModel>) usuarioRepository.findAll();
+    }
+
+    public UsuarioModel guardarUsuario(UsuarioModel usuarioModel){
+        return usuarioRepository.save(usuarioModel);
+    }
+
+    /*Optional regresa valores sin problemas 
+     * ejemplo, si es un valor nulo, devuelve empty 
+     * en caso contrario devuelve el valor que se encuentra en la BD*/
+
+    public Optional<UsuarioModel> obtenerPorId(Long id){
+        return usuarioRepository.findById(id);
+    } 
+
+    public ArrayList<UsuarioModel> obtenerPorPrioridad(Integer prioridad){
+        return usuarioRepository.findByPrioridad(prioridad);
+    }
+
+    public boolean eliminarUsuario(Long id){
+        try {
+            usuarioRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
+
+}
